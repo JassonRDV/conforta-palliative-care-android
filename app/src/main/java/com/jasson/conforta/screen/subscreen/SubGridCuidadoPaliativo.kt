@@ -1,4 +1,4 @@
-package com.jasson.conforta.screen
+package com.jasson.conforta.screen.subscreen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn

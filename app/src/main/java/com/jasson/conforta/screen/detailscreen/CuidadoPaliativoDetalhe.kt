@@ -1,4 +1,4 @@
-package com.jasson.conforta.screen
+package com.jasson.conforta.screen.detailscreen
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.gestures.Orientation
