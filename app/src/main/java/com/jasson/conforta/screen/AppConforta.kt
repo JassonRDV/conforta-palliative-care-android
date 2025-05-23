@@ -1,15 +1,13 @@
 package com.jasson.conforta.screen
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.jasson.conforta.R
+import com.jasson.conforta.screen.mainscreen.GridCuidadoPaliativo
 import com.jasson.conforta.screen.topbar.AppTopBar
 import com.jasson.conforta.ui.theme.ConfortaTheme
 
@@ -24,11 +22,9 @@ fun AppConforta() {
                     onNavigationIconClick = { /* TODO: Lógica para navegação */ }
                 )
             },
-            modifier = Modifier.Companion.fillMaxSize()
         ) { innerPadding ->
-            LazyGrid(
+            GridCuidadoPaliativo(
                 modifier = Modifier.Companion
-                    .background(MaterialTheme.colorScheme.background)
                     .padding(innerPadding)
             )
         }

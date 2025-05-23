@@ -21,21 +21,15 @@ internal fun AppTopBar(title: String, onNavigationIconClick: () -> Unit) {
             Text(
                 text = title,
                 style = MaterialTheme.typography.displaySmall,
-                color = MaterialTheme.colorScheme.onPrimaryContainer
             )
         },
         navigationIcon = {
             IconButton(onClick = onNavigationIconClick) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    tint = MaterialTheme.colorScheme.onPrimaryContainer,
                     contentDescription = stringResource(R.string.voltar)
                 )
             }
         },
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
-            titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
-        )
     )
 }

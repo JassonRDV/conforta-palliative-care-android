@@ -27,7 +27,7 @@ import com.jasson.conforta.screen.topbar.AppTopBar
 import com.jasson.conforta.ui.theme.ConfortaTheme
 
 @Composable
-fun ConfortaSubCategotyDetalhe(
+fun CuidadoPaliativoDetalhe(
     item: DummyData.SubDetalhe,
     modifier: Modifier = Modifier
 ) {
@@ -42,7 +42,7 @@ fun ConfortaSubCategotyDetalhe(
                 true
                 )
             .fillMaxSize()
-            .padding(8.dp)
+            .padding(12.dp)
     ) {
         Card(
             elevation = CardDefaults.cardElevation(2.dp),
@@ -70,7 +70,7 @@ fun ConfortaSubCategotyDetalhe(
             )
             Text(
                 text = item.texto,
-                textAlign = TextAlign.Unspecified,
+                textAlign = TextAlign.Justify,
                 fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
                 fontSize = MaterialTheme.typography.bodyLarge.fontSize,
                 fontWeight = MaterialTheme.typography.bodyLarge.fontWeight,
@@ -140,7 +140,7 @@ fun GreetingPreview3() {
             },
             modifier = Modifier.Companion.fillMaxSize()
         ) { innerPadding ->
-            ConfortaSubCategotyDetalhe(
+            CuidadoPaliativoDetalhe(
                 item = DummyData.sampleSubDetail,
                 modifier = Modifier.padding(innerPadding)
             )
