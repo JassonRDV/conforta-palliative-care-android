@@ -8,14 +8,17 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import com.jasson.conforta.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun AppTopBar(title: String, onNavigationIconClick: () -> Unit) {
+internal fun AppTopBar(
+    title: String,
+    onNavigationIconClick: () -> Unit,
+    canNavigateBack: Boolean
+) {
     CenterAlignedTopAppBar(
         title = {
             Text(
@@ -24,11 +27,13 @@ internal fun AppTopBar(title: String, onNavigationIconClick: () -> Unit) {
             )
         },
         navigationIcon = {
-            IconButton(onClick = onNavigationIconClick) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = stringResource(R.string.voltar)
-                )
+            if (canNavigateBack) {
+                IconButton(onClick = onNavigationIconClick) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = stringResource(R.string.voltar)
+                    )
+                }
             }
         },
     )

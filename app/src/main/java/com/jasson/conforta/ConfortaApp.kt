@@ -65,6 +65,8 @@ fun ConfortaApp(
         topBar = {
             AppTopBar(
                 title = stringResource(id = currentScreen.stringId),
+                canNavigateBack = currentScreen != AppScreen.MainScreen &&
+                        navController.previousBackStackEntry != null,
                 onNavigationIconClick = {
                     navController.navigateUp()
                 }

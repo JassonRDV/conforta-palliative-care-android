@@ -126,24 +126,3 @@ fun CuidadoPaliativoDetalhe(
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview3() {
-    ConfortaTheme {
-        Scaffold(
-            topBar = {
-                AppTopBar(
-                    title = stringResource(R.string.app_name),
-                    onNavigationIconClick = { /* TODO: Lógica para navegação */ }
-                )
-            },
-            modifier = Modifier.Companion.fillMaxSize()
-        ) { innerPadding ->
-            CuidadoPaliativoDetalhe(
-                uiState = DummyData.sampleSubDetail,
-                modifier = Modifier.padding(innerPadding)
-            )
-        }
-    }
-}
