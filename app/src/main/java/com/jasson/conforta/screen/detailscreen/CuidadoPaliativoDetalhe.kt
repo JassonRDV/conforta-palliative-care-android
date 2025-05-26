@@ -28,7 +28,7 @@ import com.jasson.conforta.ui.theme.ConfortaTheme
 
 @Composable
 fun CuidadoPaliativoDetalhe(
-    item: DummyData.SubDetalhe,
+    uiState: DummyData.Detail?,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -40,7 +40,7 @@ fun CuidadoPaliativoDetalhe(
                 Orientation.Vertical,
                 true,
                 true
-                )
+            )
             .fillMaxSize()
             .padding(12.dp)
     ) {
@@ -52,7 +52,7 @@ fun CuidadoPaliativoDetalhe(
                 .wrapContentHeight()
         ) {
             Text(
-                text = item.titulo,
+                text = uiState?.title ?: "title",
                 textAlign = TextAlign.Center,
                 fontFamily = MaterialTheme.typography.titleLarge.fontFamily,
                 fontSize = MaterialTheme.typography.titleLarge.fontSize,
@@ -69,7 +69,7 @@ fun CuidadoPaliativoDetalhe(
                     .align(Alignment.CenterHorizontally)
             )
             Text(
-                text = item.texto,
+                text = uiState?.text ?: "text",
                 textAlign = TextAlign.Justify,
                 fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
                 fontSize = MaterialTheme.typography.bodyLarge.fontSize,
@@ -93,7 +93,7 @@ fun CuidadoPaliativoDetalhe(
                 .wrapContentHeight()
         ) {
             Text(
-                text = "Referência",
+                text = stringResource(R.string.referencia),
                 textAlign = TextAlign.Center,
                 fontFamily = MaterialTheme.typography.titleMedium.fontFamily,
                 fontSize = MaterialTheme.typography.titleMedium.fontSize,
@@ -109,7 +109,7 @@ fun CuidadoPaliativoDetalhe(
                     .align(Alignment.CenterHorizontally)
             )
             Text(
-                text = item.referenciaList,
+                text = uiState?.referenceList ?: "referenceList",
                 fontFamily = MaterialTheme.typography.bodyMedium.fontFamily,
                 fontSize = MaterialTheme.typography.bodyMedium.fontSize,
                 fontWeight = MaterialTheme.typography.bodyMedium.fontWeight,
@@ -141,7 +141,7 @@ fun GreetingPreview3() {
             modifier = Modifier.Companion.fillMaxSize()
         ) { innerPadding ->
             CuidadoPaliativoDetalhe(
-                item = DummyData.sampleSubDetail,
+                uiState = DummyData.sampleSubDetail,
                 modifier = Modifier.padding(innerPadding)
             )
         }

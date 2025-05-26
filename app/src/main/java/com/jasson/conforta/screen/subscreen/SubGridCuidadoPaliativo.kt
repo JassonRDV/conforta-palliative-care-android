@@ -1,49 +1,40 @@
 package com.jasson.conforta.screen.subscreen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.jasson.conforta.R
+import androidx.navigation.NavHostController
+import com.jasson.conforta.AppScreen
+import com.jasson.conforta.ViewModel
 import com.jasson.conforta.dummy.DummyData
-import com.jasson.conforta.screen.common.CuidadoPaliativo
-import com.jasson.conforta.screen.topbar.AppTopBar
-import com.jasson.conforta.ui.theme.ConfortaTheme
+import com.jasson.conforta.screen.common.CuidadoPaliativoSubCard
 
 @Composable
 fun SubGridCuidadoPaliativo(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    uiState: List<DummyData.SubGridItem>,
+    viewModel: ViewModel,
+    navController: NavHostController,
 ) {
     LazyColumn(
         modifier = modifier.padding(horizontal = 4.dp),
     ) {
-        items(DummyData.sampleGridItems.size) { item ->
-            val gridItem = DummyData.sampleGridItems[item]
-            CuidadoPaliativo(
+        items(uiState.size) { item ->
+            val gridItem = uiState[item]
+            CuidadoPaliativoSubCard(
                 item = gridItem,
-                modifier = Modifier.padding(8.dp)
+                modifier = Modifier
+                    .clickable {
+                        navController.navigate(
+                            AppScreen.DetailScreen.route
+                        )
+                        viewModel.loadDetail(item)
+                    }
+                    .padding(4.dp)
             )
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ConfortaTheme {
-        Scaffold(
-            topBar = {
-                AppTopBar(
-                    title = stringResource(R.string.app_name),
-                    onNavigationIconClick = { /* TODO: Lógica para navegação */ }
-                )
-            },
-        ) { innerPadding ->
-            SubGridCuidadoPaliativo(modifier = Modifier.padding(innerPadding))
         }
     }
 }

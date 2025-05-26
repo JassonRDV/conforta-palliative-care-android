@@ -6,25 +6,18 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.jasson.conforta.R
 import com.jasson.conforta.dummy.DummyData
-import com.jasson.conforta.screen.mainscreen.GridCuidadoPaliativo
-import com.jasson.conforta.screen.topbar.AppTopBar
-import com.jasson.conforta.ui.theme.ConfortaTheme
 
 @Composable
-fun CuidadoPaliativo(
+fun CuidadoPaliativoCard(
     item: DummyData.GridItem,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Card(
         elevation = CardDefaults.cardElevation(2.dp),
@@ -50,23 +43,30 @@ fun CuidadoPaliativo(
     }
 }
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview4() {
-    ConfortaTheme {
-        Scaffold(
-            topBar = {
-                AppTopBar(
-                    title = stringResource(R.string.app_name),
-                    onNavigationIconClick = {
-                        /* TODO: Lógica para navegação */
-                    }
-                )
-            },
-        ) { innerPadding ->
-            GridCuidadoPaliativo(
-                modifier = Modifier
-                    .padding(innerPadding)
+fun CuidadoPaliativoSubCard(
+    item: DummyData.SubGridItem,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        elevation = CardDefaults.cardElevation(2.dp),
+        border = CardDefaults.outlinedCardBorder(),
+        modifier = modifier
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .padding(12.dp)
+        ) {
+            Icon(
+                imageVector = item.iconRes,
+                contentDescription = item.title,
+            )
+            Text(
+                text = item.title,
+                style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.weight(1f)
             )
         }
     }
