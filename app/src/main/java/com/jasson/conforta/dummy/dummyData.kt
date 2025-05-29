@@ -1,6 +1,7 @@
 package com.jasson.conforta.dummy
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Chat
 import androidx.compose.material.icons.filled.AccessibilityNew
 import androidx.compose.material.icons.filled.Chat
 import androidx.compose.material.icons.filled.CleanHands
@@ -62,7 +63,7 @@ object DummyData {
         GridItem("Manejo de Sintomas", Icons.Filled.Medication),
         GridItem("Suporte Emocional", Icons.Filled.Favorite),
         GridItem("Apoio Psicossocial", Icons.Filled.Psychology),
-        GridItem("Comunicação Clara", Icons.Filled.Chat),
+        GridItem("Comunicação Clara", Icons.AutoMirrored.Filled.Chat),
         GridItem("Cuidados Domiciliares", Icons.Filled.Home),
         GridItem("Apoio à Família", Icons.Filled.EscalatorWarning),
         GridItem("Suporte Espiritual", Icons.Filled.SelfImprovement),
