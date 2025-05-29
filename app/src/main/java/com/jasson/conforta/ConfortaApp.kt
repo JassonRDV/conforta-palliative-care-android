@@ -1,6 +1,5 @@
 package com.jasson.conforta
 
-import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -20,34 +19,6 @@ import com.jasson.conforta.screen.detailscreen.CuidadoPaliativoDetalhe
 import com.jasson.conforta.screen.mainscreen.MainScreen
 import com.jasson.conforta.screen.subscreen.SubGridCuidadoPaliativo
 import com.jasson.conforta.screen.topbar.AppTopBar
-
-sealed class AppScreen(
-    val route: String,
-    @StringRes val stringId: Int,
-) {
-    data object MainScreen : AppScreen(
-        "main",
-        R.string.app_name
-    )
-
-    data object SubScreen : AppScreen(
-        route = "sub_screen",
-        stringId = R.string.categorias,
-    )
-
-    data object DetailScreen : AppScreen(
-        "detail/{subItemTitle}",
-        stringId = R.string.procedimento
-    )
-
-    companion object {
-        val screens = listOf(MainScreen, SubScreen, DetailScreen)
-
-        fun fromRoute(route: String?): AppScreen {
-            return screens.find { it.route == route } ?: MainScreen
-        }
-    }
-}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

@@ -25,14 +25,9 @@ object DummyData {
     val sampleSubDetail = Detail(
         title = "Entendendo os Cuidados Paliativos",
         text = """
-            Os cuidados paliativos são uma abordagem de assistência promovida por uma equipe multiprofissional,
-            que objetiva a melhoria da qualidade de vida do paciente e seus familiares, diante de uma doença
-            que ameace a vida, por meio da prevenção e alívio do sofrimento, da identificação precoce, 
-            avaliação impecável e tratamento de dor e demais sintomas físicos, sociais, psicológicos e espirituais.
+            Os cuidados paliativos são uma abordagem de assistência promovida por uma equipe multiprofissional, que objetiva a melhoria da qualidade de vida do paciente e seus familiares, diante de uma doença que ameace a vida, por meio da prevenção e alívio do sofrimento, da identificação precoce, avaliação impecável e tratamento de dor e demais sintomas físicos, sociais, psicológicos e espirituais.
 
-            Eles não se limitam apenas aos momentos finais da vida, podendo ser iniciados desde o diagnóstico
-            de doenças crônicas progressivas, juntamente com o tratamento curativo. O foco é proporcionar
-            conforto, dignidade e suporte integral.
+            Eles não se limitam apenas aos momentos finais da vida, podendo ser iniciados desde o diagnóstico de doenças crônicas progressivas, juntamente com o tratamento curativo. O foco é proporcionar conforto, dignidade e suporte integral.
         """.trimIndent(),
         referenceList = """
             - Academia Nacional de Cuidados Paliativos (ANCP)

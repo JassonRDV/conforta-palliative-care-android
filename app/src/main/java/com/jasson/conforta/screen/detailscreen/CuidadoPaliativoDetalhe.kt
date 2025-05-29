@@ -1,46 +1,38 @@
 package com.jasson.conforta.screen.detailscreen
 
-import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.jasson.conforta.R
 import com.jasson.conforta.dummy.DummyData
-import com.jasson.conforta.screen.topbar.AppTopBar
-import com.jasson.conforta.ui.theme.ConfortaTheme
 
 @Composable
 fun CuidadoPaliativoDetalhe(
     uiState: DummyData.Detail?,
     modifier: Modifier = Modifier
 ) {
+    val scrollState = rememberScrollState()
+
     Column(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
-            .scrollable(
-                ScrollState(0),
-                Orientation.Vertical,
-                true,
-                true
-            )
+            .verticalScroll(scrollState)
             .fillMaxSize()
             .padding(12.dp)
     ) {
@@ -70,11 +62,12 @@ fun CuidadoPaliativoDetalhe(
             )
             Text(
                 text = uiState?.text ?: "text",
-                textAlign = TextAlign.Justify,
+                textAlign = MaterialTheme.typography.bodyLarge.textAlign,
                 fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
                 fontSize = MaterialTheme.typography.bodyLarge.fontSize,
                 fontWeight = MaterialTheme.typography.bodyLarge.fontWeight,
                 fontStyle = MaterialTheme.typography.bodyLarge.fontStyle,
+                style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier
                     .padding(
                         start = 12.dp,
@@ -82,7 +75,6 @@ fun CuidadoPaliativoDetalhe(
                         bottom = 12.dp,
                         top = 2.dp
                     )
-                    .align(Alignment.Start)
             )
         }
         Card(

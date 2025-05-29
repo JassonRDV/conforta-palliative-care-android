@@ -10,7 +10,7 @@ import androidx.navigation.NavHostController
 import com.jasson.conforta.AppScreen
 import com.jasson.conforta.ViewModel
 import com.jasson.conforta.dummy.DummyData
-import com.jasson.conforta.screen.common.CuidadoPaliativoSubCard
+import com.jasson.conforta.screen.mainscreen.CuidadoPaliativoSubCard
 
 @Composable
 fun SubGridCuidadoPaliativo(

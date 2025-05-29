@@ -1,4 +1,4 @@
-package com.jasson.conforta.screen.common
+package com.jasson.conforta.screen.mainscreen
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -32,10 +32,13 @@ fun CuidadoPaliativoCard(
             Icon(
                 imageVector = item.iconRes,
                 contentDescription = item.title,
+                modifier = Modifier
             )
             Text(
                 text = item.title,
                 style = MaterialTheme.typography.titleMedium,
+                lineHeight = MaterialTheme.typography.titleMedium.lineHeight,
+                maxLines = 1,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f)
             )
@@ -65,6 +68,8 @@ fun CuidadoPaliativoSubCard(
             Text(
                 text = item.title,
                 style = MaterialTheme.typography.titleMedium,
+                lineHeight = MaterialTheme.typography.titleMedium.lineHeight,
+                maxLines = 1,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.weight(1f)
             )
