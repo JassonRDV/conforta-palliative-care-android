@@ -15,10 +15,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.jasson.conforta.screen.detailscreen.CuidadoPaliativoDetalhe
-import com.jasson.conforta.screen.mainscreen.MainScreen
-import com.jasson.conforta.screen.subscreen.SubGridCuidadoPaliativo
-import com.jasson.conforta.screen.topbar.AppTopBar
+import com.jasson.conforta.ui.screen.detailscreen.CuidadoPaliativoDetalhe
+import com.jasson.conforta.ui.screen.mainscreen.MainScreen
+import com.jasson.conforta.ui.screen.subscreen.SubGridCuidadoPaliativo
+import com.jasson.conforta.ui.screen.topbar.AppTopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

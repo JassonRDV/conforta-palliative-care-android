@@ -1,4 +1,4 @@
-package com.jasson.conforta.dummy
+package com.jasson.conforta.data.model.dummy
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Chat

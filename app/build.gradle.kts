@@ -71,4 +71,8 @@ dependencies {
     implementation (libs.androidx.navigation.compose)
     androidTestImplementation (libs.androidx.navigation.testing)
     implementation (libs.kotlinx.serialization.json)
+
+    implementation(libs.retrofit)
+    implementation(libs.logging.interceptor)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
 }

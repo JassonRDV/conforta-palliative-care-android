@@ -2,8 +2,8 @@ package com.jasson.conforta
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jasson.conforta.dummy.DummyData
-import com.jasson.conforta.local.DataRepository
+import com.jasson.conforta.data.model.dummy.DummyData
+import com.jasson.conforta.data.local.DataRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

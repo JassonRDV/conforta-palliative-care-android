@@ -1,4 +1,4 @@
-package com.jasson.conforta.screen.subscreen
+package com.jasson.conforta.ui.screen.subscreen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
@@ -9,8 +9,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.jasson.conforta.AppScreen
 import com.jasson.conforta.ViewModel
-import com.jasson.conforta.dummy.DummyData
-import com.jasson.conforta.screen.mainscreen.CuidadoPaliativoSubCard
+import com.jasson.conforta.data.model.dummy.DummyData
+import com.jasson.conforta.ui.screen.mainscreen.CuidadoPaliativoSubCard
 
 @Composable
 fun SubGridCuidadoPaliativo(

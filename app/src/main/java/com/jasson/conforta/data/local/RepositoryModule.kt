@@ -1,4 +1,4 @@
-package com.jasson.conforta.local
+package com.jasson.conforta.data.local
 
 import dagger.Binds
 import dagger.Module

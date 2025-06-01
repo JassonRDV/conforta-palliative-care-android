@@ -1,4 +1,4 @@
-package com.jasson.conforta.screen.mainscreen
+package com.jasson.conforta.ui.screen.mainscreen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.jasson.conforta.AppScreen
 import com.jasson.conforta.ViewModel
-import com.jasson.conforta.dummy.DummyData
+import com.jasson.conforta.data.model.dummy.DummyData
 
 @Composable
 fun MainScreen(

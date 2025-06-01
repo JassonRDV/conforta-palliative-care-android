@@ -1,4 +1,4 @@
-package com.jasson.conforta.screen.mainscreen
+package com.jasson.conforta.ui.screen.mainscreen
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.jasson.conforta.dummy.DummyData
+import com.jasson.conforta.data.model.dummy.DummyData
 
 @Composable
 fun CuidadoPaliativoCard(

@@ -1,6 +1,6 @@
-package com.jasson.conforta.local
+package com.jasson.conforta.data.local
 
-import com.jasson.conforta.dummy.DummyData
+import com.jasson.conforta.data.model.dummy.DummyData
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
