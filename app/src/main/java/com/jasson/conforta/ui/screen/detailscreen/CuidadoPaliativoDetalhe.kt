@@ -19,11 +19,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.jasson.conforta.R
-import com.jasson.conforta.data.model.dummy.DummyData
+import com.jasson.conforta.data.remote.DetalheSubcategoria
 
 @Composable
 fun CuidadoPaliativoDetalhe(
-    uiState: DummyData.Detail?,
+    uiState: DetalheSubcategoria?,
     modifier: Modifier = Modifier
 ) {
     val scrollState = rememberScrollState()
@@ -44,24 +44,7 @@ fun CuidadoPaliativoDetalhe(
                 .wrapContentHeight()
         ) {
             Text(
-                text = uiState?.title ?: "title",
-                textAlign = TextAlign.Center,
-                fontFamily = MaterialTheme.typography.titleLarge.fontFamily,
-                fontSize = MaterialTheme.typography.titleLarge.fontSize,
-                fontWeight = MaterialTheme.typography.titleLarge.fontWeight,
-                fontStyle = MaterialTheme.typography.titleLarge.fontStyle,
-
-                modifier = Modifier
-                    .padding(
-                        start = 12.dp,
-                        end = 12.dp,
-                        bottom = 2.dp,
-                        top = 12.dp
-                    )
-                    .align(Alignment.CenterHorizontally)
-            )
-            Text(
-                text = uiState?.text ?: "text",
+                text = uiState?.descricao ?: "text",
                 textAlign = MaterialTheme.typography.bodyLarge.textAlign,
                 fontFamily = MaterialTheme.typography.bodyLarge.fontFamily,
                 fontSize = MaterialTheme.typography.bodyLarge.fontSize,
@@ -101,7 +84,7 @@ fun CuidadoPaliativoDetalhe(
                     .align(Alignment.CenterHorizontally)
             )
             Text(
-                text = uiState?.referenceList ?: "referenceList",
+                text = uiState?.referencia ?: "referenceList",
                 fontFamily = MaterialTheme.typography.bodyMedium.fontFamily,
                 fontSize = MaterialTheme.typography.bodyMedium.fontSize,
                 fontWeight = MaterialTheme.typography.bodyMedium.fontWeight,

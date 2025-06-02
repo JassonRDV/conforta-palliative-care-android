@@ -6,13 +6,13 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PaliativeCareResponse(
     @SerialName("Cuidado Paliativo")
-    val data: List<PaliativeCareItemDto>
+    val itens: List<PaliativeCareItemDto>
 )
 
 @Serializable
 data class PaliativeCareItemDto(
     @SerialName("Cuidado Paliativo")
-    val cuidadoPaliativo: String,
+    val categoria: String,
 
     @SerialName("Subcategoria")
     val subcategoria: String,
@@ -28,4 +28,17 @@ data class PaliativeCareItemDto(
 
     @SerialName("Referência")
     val referencia: String
+)
+
+data class DetalheSubcategoria(
+    val nomeSubcategoria: String,
+    val descricao: String,
+    val profissionalEnvolvido: List<String>,
+    val nivelDeUrgencia: String,
+    val referencia: String?
+)
+
+data class CuidadoPaliativoAgrupado(
+    val nomeCategoriaPrincipal: String,
+    val subcategorias: List<DetalheSubcategoria>
 )

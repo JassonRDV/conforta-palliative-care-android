@@ -21,7 +21,7 @@
       </SelectionState>
       <SelectionState runConfigName="MainActivity">
         <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-05-28T21:09:34.517479Z">
+        <DropdownSelection timestamp="2025-06-02T19:14:55.998178Z">
           <Target type="DEFAULT_BOOT">
             <handle>
               <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\jasso\.android\avd\Small_Phone.avd" />

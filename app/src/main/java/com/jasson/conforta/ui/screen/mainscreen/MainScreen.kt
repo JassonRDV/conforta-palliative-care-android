@@ -11,11 +11,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.jasson.conforta.AppScreen
 import com.jasson.conforta.ViewModel
-import com.jasson.conforta.data.model.dummy.DummyData
+import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
 
 @Composable
 fun MainScreen(
-    uiState: List<DummyData.GridItem>,
+    uiState: List<CuidadoPaliativoAgrupado>,
     navController: NavHostController,
     modifier: Modifier = Modifier,
     viewModel: ViewModel,

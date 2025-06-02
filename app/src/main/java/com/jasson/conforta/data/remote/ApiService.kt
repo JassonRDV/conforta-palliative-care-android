@@ -1,9 +1,13 @@
 package com.jasson.conforta.data.remote
 
+import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Url
+import retrofit2.http.Query
 
 interface ApiService {
-    @GET
-    suspend fun getPalliativeCareData(@Url url: String): PaliativeCareResponse
+    @GET("uc")
+    suspend fun getPalliativeCareData(
+        @Query("id") fileId: String,
+        @Query("export") exportType: String = "download",
+    ): Response<PaliativeCareResponse>
 }

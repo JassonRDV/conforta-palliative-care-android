@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -12,11 +11,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.jasson.conforta.data.model.dummy.DummyData
+import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
+import com.jasson.conforta.data.remote.DetalheSubcategoria
 
 @Composable
 fun CuidadoPaliativoCard(
-    item: DummyData.GridItem,
+    item: CuidadoPaliativoAgrupado,
     modifier: Modifier = Modifier,
 ) {
     Card(
@@ -29,13 +29,8 @@ fun CuidadoPaliativoCard(
             modifier = Modifier
                 .padding(12.dp)
         ) {
-            Icon(
-                imageVector = item.iconRes,
-                contentDescription = item.title,
-                modifier = Modifier
-            )
             Text(
-                text = item.title,
+                text = item.nomeCategoriaPrincipal,
                 style = MaterialTheme.typography.titleMedium,
                 lineHeight = MaterialTheme.typography.titleMedium.lineHeight,
                 maxLines = 1,
@@ -48,7 +43,7 @@ fun CuidadoPaliativoCard(
 
 @Composable
 fun CuidadoPaliativoSubCard(
-    item: DummyData.SubGridItem,
+    item: DetalheSubcategoria,
     modifier: Modifier = Modifier,
 ) {
     Card(
@@ -61,12 +56,8 @@ fun CuidadoPaliativoSubCard(
             modifier = Modifier
                 .padding(12.dp)
         ) {
-            Icon(
-                imageVector = item.iconRes,
-                contentDescription = item.title,
-            )
             Text(
-                text = item.title,
+                text = item.nomeSubcategoria,
                 style = MaterialTheme.typography.titleMedium,
                 lineHeight = MaterialTheme.typography.titleMedium.lineHeight,
                 maxLines = 1,

@@ -55,15 +55,15 @@ fun ConfortaApp(
                 MainScreen(
                     modifier = Modifier,
                     navController = navController,
-                    uiState = uiState.list,
+                    uiState = uiState.cuidadosAgrupados,
                     viewModel = viewModel
                 )
             }
             composable(
                 route = AppScreen.SubScreen.route,
-            ) { backStackEntry ->
+            ) {
                 SubGridCuidadoPaliativo(
-                    uiState = uiState.subList,
+                    uiState = uiState.subGridItems,
                     viewModel = viewModel,
                     navController = navController
                 )
