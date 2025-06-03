@@ -75,4 +75,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.logging.interceptor)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
+
+    implementation(libs.androidx.core.splashscreen)
 }
