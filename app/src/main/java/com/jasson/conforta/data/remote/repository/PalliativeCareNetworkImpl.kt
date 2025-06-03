@@ -6,16 +6,16 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PalliativeCareRepositoryImpl @Inject constructor(
-    private val apiService: ApiService // Sua ApiService do Retrofit
-) : PalliativeCareRepository {
+class PalliativeCareNetworkImpl @Inject constructor(
+    private val apiService: ApiService
+) : PalliativeCareNetwork {
 
-    override suspend fun getPalliativeCareData(
+    override suspend fun fetchPalliativeCareData(
         fileId: String,
         exportType: String
     ): Result<PaliativeCareResponse> {
         return try {
-            val response = apiService.getPalliativeCareData(
+            val response = apiService.getJsonDataFromGoogleDrive(
                 fileId = fileId,
                 exportType = exportType
             )

@@ -1,8 +1,9 @@
-package com.jasson.conforta.data.remote
+package com.jasson.conforta.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.jasson.conforta.data.remote.repository.PalliativeCareRepository
-import com.jasson.conforta.data.remote.repository.PalliativeCareRepositoryImpl
+import com.jasson.conforta.data.remote.ApiService
+import com.jasson.conforta.data.remote.repository.PalliativeCareNetwork
+import com.jasson.conforta.data.remote.repository.PalliativeCareNetworkImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -56,7 +57,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providePalliativeCareRepository(apiService: ApiService): PalliativeCareRepository {
-        return PalliativeCareRepositoryImpl(apiService)
+    fun providePalliativeCareRepository(apiService: ApiService): PalliativeCareNetwork {
+        return PalliativeCareNetworkImpl(apiService)
     }
 }

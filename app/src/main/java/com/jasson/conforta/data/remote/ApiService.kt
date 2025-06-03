@@ -6,7 +6,7 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("uc")
-    suspend fun getPalliativeCareData(
+    suspend fun getJsonDataFromGoogleDrive(
         @Query("id") fileId: String,
         @Query("export") exportType: String = "download",
     ): Response<PaliativeCareResponse>

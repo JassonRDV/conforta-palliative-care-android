@@ -4,8 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
 import com.jasson.conforta.data.remote.DetalheSubcategoria
-import com.jasson.conforta.data.remote.PaliativeCareResponse
-import com.jasson.conforta.data.remote.repository.PalliativeCareRepository
+import com.jasson.conforta.data.usecase.GetPalliativeCareDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ViewModel @Inject constructor(
-    private val palliativeCareRepository: PalliativeCareRepository
+    private val getPalliativeCareDataUseCase: GetPalliativeCareDataUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(PalliativeCareUiState())
@@ -32,31 +31,14 @@ class ViewModel @Inject constructor(
                 currentState.copy(isLoading = true, errorMessages = emptyList())
             }
 
-            val result: Result<PaliativeCareResponse> =
-                palliativeCareRepository.getPalliativeCareData(fileId = fileId)
+            val result =
+                getPalliativeCareDataUseCase(fileId = fileId) // O UseCase é chamado como uma função
 
             result.fold(
-                onSuccess = { paliativeCareResponse ->
-                    val dadosAgrupados = paliativeCareResponse.itens
-                        .groupBy { it.categoria }
-                        .map { (nomeCategoria, itensDaMesmaCategoria) ->
-                            CuidadoPaliativoAgrupado(
-                                nomeCategoriaPrincipal = nomeCategoria,
-                                subcategorias = itensDaMesmaCategoria.map { itemDto ->
-                                    DetalheSubcategoria(
-                                        nomeSubcategoria = itemDto.subcategoria,
-                                        descricao = itemDto.descricao,
-                                        profissionalEnvolvido = itemDto.profissionalEnvolvido,
-                                        nivelDeUrgencia = itemDto.nivelDeUrgencia,
-                                        referencia = itemDto.referencia
-                                    )
-                                }
-                            )
-                        }
-
+                onSuccess = { dadosAgrupados -> // dadosAgrupados já é List<CuidadoPaliativoAgrupado>
                     _uiState.update { currentState ->
                         currentState.copy(
-                            cuidadosAgrupados = dadosAgrupados,
+                            cuidadosAgrupados = dadosAgrupados, // Atribui diretamente
                             isLoading = false
                         )
                     }
@@ -66,7 +48,8 @@ class ViewModel @Inject constructor(
                         currentState.copy(
                             isLoading = false,
                             errorMessages = listOf(
-                                exception.message ?: "Ocorreu um erro desconhecido"
+                                exception.message
+                                    ?: "Ocorreu um erro desconhecido ao carregar dados"
                             )
                         )
                     }
@@ -78,22 +61,15 @@ class ViewModel @Inject constructor(
     fun loadSubGridItems(subItemIndex: Int) {
         viewModelScope.launch {
             _uiState.update { currentState ->
-                currentState.copy(
-                    isLoading = true,
-                    errorMessages = emptyList()
-                )
+                currentState.copy(isLoading = true, errorMessages = emptyList())
             }
-
-            val listaDeCuidadosAgrupados = _uiState.value.cuidadosAgrupados
-
-            if (subItemIndex >= 0 && subItemIndex < listaDeCuidadosAgrupados.size) {
-                val itemAgrupadoSelecionado = listaDeCuidadosAgrupados[subItemIndex]
-
+            val currentCuidadosAgrupados = _uiState.value.cuidadosAgrupados
+            if (subItemIndex >= 0 && subItemIndex < currentCuidadosAgrupados.size) {
+                val itemAgrupadoSelecionado = currentCuidadosAgrupados[subItemIndex]
                 _uiState.update { currentState ->
                     currentState.copy(
                         subGridItems = itemAgrupadoSelecionado.subcategorias,
-                        isLoading = false,
-                        errorMessages = emptyList()
+                        isLoading = false
                     )
                 }
             } else {
@@ -117,9 +93,7 @@ class ViewModel @Inject constructor(
                     detail = null
                 )
             }
-
             val currentSubGridItems = _uiState.value.subGridItems
-
             if (detailIndex >= 0 && detailIndex < currentSubGridItems.size) {
                 val selectedDetailItem = currentSubGridItems[detailIndex]
                 _uiState.update { currentState ->
@@ -132,11 +106,7 @@ class ViewModel @Inject constructor(
                 _uiState.update { currentState ->
                     currentState.copy(
                         isLoading = false,
-                        errorMessages = listOf(
-                            "Não foi possível carregar o detalhe: " +
-                                    "índice $detailIndex é inválido " +
-                                    "para a lista de subitens atual."
-                        )
+                        errorMessages = listOf("Não foi possível carregar o detalhe: índice $detailIndex é inválido.")
                     )
                 }
             }
