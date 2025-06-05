@@ -31,14 +31,13 @@ class ViewModel @Inject constructor(
                 currentState.copy(isLoading = true, errorMessages = emptyList())
             }
 
-            val result =
-                getPalliativeCareDataUseCase(fileId = fileId) // O UseCase é chamado como uma função
+            val result = getPalliativeCareDataUseCase(fileId = fileId)
 
             result.fold(
-                onSuccess = { dadosAgrupados -> // dadosAgrupados já é List<CuidadoPaliativoAgrupado>
+                onSuccess = { dadosAgrupados ->
                     _uiState.update { currentState ->
                         currentState.copy(
-                            cuidadosAgrupados = dadosAgrupados, // Atribui diretamente
+                            cuidadosAgrupados = dadosAgrupados,
                             isLoading = false
                         )
                     }
@@ -106,7 +105,9 @@ class ViewModel @Inject constructor(
                 _uiState.update { currentState ->
                     currentState.copy(
                         isLoading = false,
-                        errorMessages = listOf("Não foi possível carregar o detalhe: índice $detailIndex é inválido.")
+                        errorMessages = listOf(
+                            "Não foi possível carregar o detalhe: índice $detailIndex é inválido."
+                        )
                     )
                 }
             }

@@ -9,7 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.jasson.conforta.AppScreen
+import com.jasson.conforta.AppDestinations
 import com.jasson.conforta.ViewModel
 import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
 
@@ -34,7 +34,7 @@ fun MainScreen(
                     modifier = Modifier
                         .clickable {
                             navController.navigate(
-                                AppScreen.SubScreen.route
+                                AppDestinations.SubDestinations.route
                             )
                             viewModel.loadSubGridItems(index)
                         }

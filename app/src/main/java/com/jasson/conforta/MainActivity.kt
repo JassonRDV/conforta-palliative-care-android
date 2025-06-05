@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             ConfortaTheme {
-                ConfortaApp()
+                AppNavigator()
             }
         }
     }
@@ -39,6 +39,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     ConfortaTheme {
-        ConfortaApp()
+        AppNavigator()
     }
 }

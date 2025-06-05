@@ -22,7 +22,7 @@ import com.jasson.conforta.ui.screen.topbar.AppTopBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ConfortaApp(
+fun AppNavigator(
     navController: NavHostController = rememberNavController(),
     viewModel: ViewModel = hiltViewModel(),
 ) {
@@ -30,13 +30,13 @@ fun ConfortaApp(
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
     val currentScreen = remember(currentRoute) {
-        AppScreen.fromRoute(currentRoute)
+        AppDestinations.fromRoute(currentRoute)
     }
     Scaffold(
         topBar = {
             AppTopBar(
                 title = stringResource(id = currentScreen.stringId),
-                canNavigateBack = currentScreen != AppScreen.MainScreen &&
+                canNavigateBack = currentScreen != AppDestinations.MainDestinations &&
                         navController.previousBackStackEntry != null,
                 onNavigationIconClick = {
                     navController.navigateUp()
@@ -46,11 +46,11 @@ fun ConfortaApp(
     ) { innerPadding ->
         NavHost(
             navController = navController,
-            startDestination = AppScreen.MainScreen.route,
+            startDestination = AppDestinations.MainDestinations.route,
             modifier = Modifier.padding(innerPadding)
         ) {
             composable(
-                route = AppScreen.MainScreen.route
+                route = AppDestinations.MainDestinations.route
             ) {
                 MainScreen(
                     modifier = Modifier,
@@ -60,7 +60,7 @@ fun ConfortaApp(
                 )
             }
             composable(
-                route = AppScreen.SubScreen.route,
+                route = AppDestinations.SubDestinations.route,
             ) {
                 SubGridCuidadoPaliativo(
                     uiState = uiState.subGridItems,
@@ -69,7 +69,7 @@ fun ConfortaApp(
                 )
             }
             composable(
-                route = AppScreen.DetailScreen.route,
+                route = AppDestinations.DetailDestinations.route,
             ) {
                 CuidadoPaliativoDetalhe(
                     uiState = uiState.detail,
