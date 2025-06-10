@@ -2,6 +2,7 @@ package com.jasson.conforta.data.usecase
 
 import android.content.SharedPreferences
 import android.util.Log
+import androidx.core.content.edit
 import com.jasson.conforta.data.local.repository.PalliativeCareLocalDataSource
 import com.jasson.conforta.data.local.toDto
 import com.jasson.conforta.data.local.toEntity
@@ -13,7 +14,6 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
 @Singleton
 class GetPalliativeCareDataUseCase @Inject constructor(
     private val remoteDataSource: PalliativeCareNetwork,
@@ -23,7 +23,6 @@ class GetPalliativeCareDataUseCase @Inject constructor(
 
     private val LAST_SUCCESSFUL_FETCH_TIMESTAMP_KEY = "last_successful_fetch_timestamp"
 
-    // Lembrete: Use TimeUnit.DAY (singular)
     private val UPDATE_INTERVAL_MILLISECONDS = TimeUnit.DAYS.toMillis(1)
 
     suspend operator fun invoke(
@@ -32,7 +31,10 @@ class GetPalliativeCareDataUseCase @Inject constructor(
         val currentTime = System.currentTimeMillis()
         val lastFetchTime = sharedPreferences.getLong(LAST_SUCCESSFUL_FETCH_TIMESTAMP_KEY, 0L)
 
-        if (localDataSource.hasCachedData() && (currentTime - lastFetchTime < UPDATE_INTERVAL_MILLISECONDS)) {
+        if (
+            localDataSource.hasCachedData() &&
+            (currentTime - lastFetchTime < UPDATE_INTERVAL_MILLISECONDS)
+        ) {
             Log.d(
                 "UseCase",
                 "Dados recentes encontrados no cache. Carregando e agrupando do cache."
@@ -48,19 +50,18 @@ class GetPalliativeCareDataUseCase @Inject constructor(
             remoteDataSource.fetchPalliativeCareData(fileId = fileId, exportType = exportType)
 
         return networkResult.fold(
-            onSuccess = { networkResponse -> // networkResponse é PaliativeCareResponse
+            onSuccess = { networkResponse ->
                 Log.d("UseCase", "Sucesso na busca da rede. Salvando no cache e agrupando.")
                 localDataSource.clearAllPalliativeCareItems()
                 localDataSource.savePalliativeCareItems(networkResponse.itens.map { it.toEntity() })
 
-                // Lembrete rápido: a versão KTX sharedPreferences.edit { ... } é mais concisa
-                with(sharedPreferences.edit()) {
+
+                sharedPreferences.edit {
                     putLong(LAST_SUCCESSFUL_FETCH_TIMESTAMP_KEY, currentTime)
-                    apply()
                 }
                 Log.d("UseCase", "Timestamp da última busca atualizado.")
 
-                // CORRIGIDO: Chama performGrouping para retornar o tipo esperado
+
                 val agrupados = performGrouping(networkResponse.itens)
                 Result.success(agrupados)
             },
@@ -76,8 +77,6 @@ class GetPalliativeCareDataUseCase @Inject constructor(
                     )
                     val cachedEntities = localDataSource.getPalliativeCareItems()
                     val dtos = cachedEntities.map { it.toDto() }
-
-                    // CORRIGIDO: Chama performGrouping para retornar o tipo esperado
                     val agrupados = performGrouping(dtos)
                     Result.success(agrupados)
                 } else {

@@ -43,42 +43,59 @@ android {
 }
 
 dependencies {
+    // Core AndroidX e Lifecycle
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.core.splashscreen)
+
+    // Jetpack Compose
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.material.icons.core)
     implementation(libs.androidx.material.icons.extended)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation(platform(libs.androidx.compose.bom))
-    androidTestImplementation(libs.androidx.ui.test.junit4)
-    debugImplementation(libs.androidx.ui.tooling)
-    debugImplementation(libs.androidx.ui.test.manifest)
+    implementation(libs.androidx.ui.text.google.fonts)
 
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    // Navegação (Navigation)
+    implementation(libs.androidx.navigation.compose)
 
+    // Injeção de Dependência (Hilt)
     implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
-    ksp (libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
-    implementation (libs.androidx.navigation.compose)
-    androidTestImplementation (libs.androidx.navigation.testing)
-    implementation (libs.kotlinx.serialization.json)
-
+    // Rede (Retrofit)
     implementation(libs.retrofit)
     implementation(libs.logging.interceptor)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
 
-    implementation(libs.androidx.core.splashscreen)
+    // Serialização de Dados
+    implementation(libs.kotlinx.serialization.json)
 
+    // Banco de Dados Local (Room)
     implementation(libs.androidx.room.runtime)
-    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    // Testes Unitários (rodam na sua máquina local - JVM)
+    testImplementation(libs.junit)
+    // Para testar o UseCase e ViewModel
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
+
+    // Testes de Instrumentação (rodam em um emulador/dispositivo Android)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(libs.androidx.navigation.testing)
+
+    // Debug
+    debugImplementation(libs.androidx.ui.tooling)
+    debugImplementation(libs.androidx.ui.test.manifest)
 }
