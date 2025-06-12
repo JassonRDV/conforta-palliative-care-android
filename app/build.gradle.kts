@@ -76,6 +76,9 @@ dependencies {
     // Serialização de Dados
     implementation(libs.kotlinx.serialization.json)
 
+    // Lottie para Jetpack Compose
+    implementation(libs.lottie.compose)
+
     // Banco de Dados Local (Room)
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)

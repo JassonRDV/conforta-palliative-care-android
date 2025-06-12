@@ -9,10 +9,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
-import com.jasson.conforta.data.remote.DetalheSubcategoria
 
 @Composable
 fun CuidadoPaliativoCard(
@@ -20,8 +20,10 @@ fun CuidadoPaliativoCard(
     modifier: Modifier = Modifier,
 ) {
     Card(
-        elevation = CardDefaults.cardElevation(2.dp),
-        border = CardDefaults.outlinedCardBorder(),
+        elevation = CardDefaults.cardElevation(4.dp),
+        colors = CardDefaults.cardColors(
+            containerColor = Color.White,
+        ),
         modifier = modifier
     ) {
         Row(
@@ -41,29 +43,3 @@ fun CuidadoPaliativoCard(
     }
 }
 
-@Composable
-fun CuidadoPaliativoSubCard(
-    item: DetalheSubcategoria,
-    modifier: Modifier = Modifier,
-) {
-    Card(
-        elevation = CardDefaults.cardElevation(2.dp),
-        border = CardDefaults.outlinedCardBorder(),
-        modifier = modifier
-    ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier
-                .padding(12.dp)
-        ) {
-            Text(
-                text = item.nomeSubcategoria,
-                style = MaterialTheme.typography.titleMedium,
-                lineHeight = MaterialTheme.typography.titleMedium.lineHeight,
-                maxLines = 1,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.weight(1f)
-            )
-        }
-    }
-}
