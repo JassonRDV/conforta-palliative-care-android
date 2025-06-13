@@ -17,16 +17,15 @@ class MainActivity : ComponentActivity() {
     private val viewModel: ViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        val splashScreen = installSplashScreen()
-
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        splashScreen.setKeepOnScreenCondition {
-            viewModel.uiState.value.isLoading
+        installSplashScreen().apply {
+            setKeepOnScreenCondition {
+                viewModel.uiState.value.isLoading &&
+                        viewModel.uiState.value.errorMessages.isEmpty()
+            }
         }
 
+        enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
         setContent {
             ConfortaTheme {
                 AppNavigator()
