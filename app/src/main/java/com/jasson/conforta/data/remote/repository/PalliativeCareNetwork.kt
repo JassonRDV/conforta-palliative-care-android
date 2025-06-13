@@ -1,6 +1,6 @@
 package com.jasson.conforta.data.remote.repository
 
-import com.jasson.conforta.data.remote.PaliativeCareResponse
+import com.jasson.conforta.domain.model.PaliativeCareResponse
 
 interface PalliativeCareNetwork {
     suspend fun fetchPalliativeCareData(

@@ -19,6 +19,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.jasson.conforta.ui.screen.detailscreen.CuidadoPaliativoDetalhe
 import com.jasson.conforta.ui.screen.mainscreen.MainScreen
+import com.jasson.conforta.ui.screen.mainscreen.ViewModel
 import com.jasson.conforta.ui.screen.subscreen.SubGridCuidadoPaliativo
 import com.jasson.conforta.ui.screen.topbar.AppTopBar
 
@@ -54,9 +55,7 @@ fun AppNavigator(
                 .padding(innerPadding)
                 .padding(top = 4.dp)
         ) {
-            composable(
-                route = AppDestinations.MainDestinations.route
-            ) {
+            composable(route = AppDestinations.MainDestinations.route) {
                 MainScreen(
                     modifier = Modifier,
                     navController = navController,

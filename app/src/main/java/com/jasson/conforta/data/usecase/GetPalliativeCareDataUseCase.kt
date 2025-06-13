@@ -6,9 +6,9 @@ import androidx.core.content.edit
 import com.jasson.conforta.data.local.repository.PalliativeCareLocalDataSource
 import com.jasson.conforta.data.local.toDto
 import com.jasson.conforta.data.local.toEntity
-import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
-import com.jasson.conforta.data.remote.DetalheSubcategoria
-import com.jasson.conforta.data.remote.PaliativeCareItemDto
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.DetalheSubcategoria
+import com.jasson.conforta.domain.model.PaliativeCareItemDto
 import com.jasson.conforta.data.remote.repository.PalliativeCareNetwork
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject

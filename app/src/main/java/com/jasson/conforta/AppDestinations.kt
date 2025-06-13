@@ -7,17 +7,17 @@ sealed class AppDestinations(
     @StringRes val stringId: Int,
 ) {
     data object MainDestinations : AppDestinations(
-        "main",
-        R.string.app_name
+        route = "main",
+        stringId = R.string.app_name
     )
 
     data object SubDestinations : AppDestinations(
-        route = "sub_screen",
+        route = "sub_screen/{categoria_json}",
         stringId = R.string.categorias,
     )
 
     data object DetailDestinations : AppDestinations(
-        "detail/{subItemTitle}",
+        "detail/{detalhe_json}",
         stringId = R.string.procedimento
     )
 
@@ -29,7 +29,11 @@ sealed class AppDestinations(
         )
 
         fun fromRoute(route: String?): AppDestinations {
-            return screens.find { it.route == route } ?: MainDestinations
+            return when {
+                route?.startsWith("detail") == true -> DetailDestinations
+                route?.startsWith("sub_screen") == true -> SubDestinations
+                else -> MainDestinations
+            }
         }
     }
 }

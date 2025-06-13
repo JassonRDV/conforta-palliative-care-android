@@ -2,7 +2,7 @@ package com.jasson.conforta.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.jasson.conforta.data.remote.PaliativeCareItemDto
+import com.jasson.conforta.domain.model.PaliativeCareItemDto
 
 @Entity(tableName = "conforta_table")
 data class PaliativeCareItemEntity(

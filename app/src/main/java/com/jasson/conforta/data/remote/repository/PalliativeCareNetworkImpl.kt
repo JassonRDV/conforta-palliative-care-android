@@ -1,7 +1,7 @@
 package com.jasson.conforta.data.remote.repository
 
 import com.jasson.conforta.data.remote.ApiService
-import com.jasson.conforta.data.remote.PaliativeCareResponse
+import com.jasson.conforta.domain.model.PaliativeCareResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 

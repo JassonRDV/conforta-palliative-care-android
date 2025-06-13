@@ -1,9 +1,9 @@
-package com.jasson.conforta
+package com.jasson.conforta.ui.screen.mainscreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
-import com.jasson.conforta.data.remote.DetalheSubcategoria
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.DetalheSubcategoria
 import com.jasson.conforta.data.usecase.GetPalliativeCareDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -13,13 +13,21 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+data class MainUiState(
+    val cuidadosAgrupados: List<CuidadoPaliativoAgrupado> = emptyList(),
+    val subGridItems: List<DetalheSubcategoria> = emptyList(),
+    val detail: DetalheSubcategoria? = null,
+    val isLoading: Boolean = false,
+    val errorMessages: List<String> = emptyList()
+)
+
 @HiltViewModel
 class ViewModel @Inject constructor(
     private val getPalliativeCareDataUseCase: GetPalliativeCareDataUseCase
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(PalliativeCareUiState())
-    val uiState: StateFlow<PalliativeCareUiState> = _uiState.asStateFlow()
+    private val _uiState = MutableStateFlow(MainUiState())
+    val uiState: StateFlow<MainUiState> = _uiState.asStateFlow()
 
     init {
         loadPalliativeCareData()
@@ -119,10 +127,3 @@ class ViewModel @Inject constructor(
     }
 }
 
-data class PalliativeCareUiState(
-    val cuidadosAgrupados: List<CuidadoPaliativoAgrupado> = emptyList(),
-    val subGridItems: List<DetalheSubcategoria> = emptyList(),
-    val detail: DetalheSubcategoria? = null,
-    val isLoading: Boolean = false,
-    val errorMessages: List<String> = emptyList()
-)

@@ -10,8 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.jasson.conforta.AppDestinations
-import com.jasson.conforta.ViewModel
-import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
 
 @Composable
 fun MainScreen(

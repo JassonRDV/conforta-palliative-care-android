@@ -4,8 +4,8 @@ import android.content.SharedPreferences
 import android.util.Log
 import com.jasson.conforta.data.local.PaliativeCareItemEntity
 import com.jasson.conforta.data.local.repository.PalliativeCareLocalDataSource
-import com.jasson.conforta.data.remote.PaliativeCareItemDto
-import com.jasson.conforta.data.remote.PaliativeCareResponse
+import com.jasson.conforta.domain.model.PaliativeCareItemDto
+import com.jasson.conforta.domain.model.PaliativeCareResponse
 import com.jasson.conforta.data.remote.repository.PalliativeCareNetwork
 import io.mockk.coEvery
 import io.mockk.coVerify

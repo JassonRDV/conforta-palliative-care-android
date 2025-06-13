@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.jasson.conforta.data.remote.DetalheSubcategoria
+import com.jasson.conforta.domain.model.DetalheSubcategoria
 
 @Composable
 fun CuidadoPaliativoSubCard(

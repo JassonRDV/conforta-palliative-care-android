@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.jasson.conforta.R
-import com.jasson.conforta.data.remote.DetalheSubcategoria
+import com.jasson.conforta.domain.model.DetalheSubcategoria
 
 @Composable
 fun CuidadoPaliativoDetalhe(

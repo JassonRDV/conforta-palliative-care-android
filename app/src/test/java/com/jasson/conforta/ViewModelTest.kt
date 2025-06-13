@@ -1,8 +1,9 @@
 package com.jasson.conforta
 
 import app.cash.turbine.test
-import com.jasson.conforta.data.remote.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
 import com.jasson.conforta.data.usecase.GetPalliativeCareDataUseCase
+import com.jasson.conforta.ui.screen.mainscreen.ViewModel
 import com.jasson.conforta.util.MainDispatcherRule
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -52,7 +53,7 @@ class ViewModelTest {
             viewModel.uiState.test {
                 // A biblioteca Turbine nos permite "esperar" por cada emissão de estado.
 
-                // 1. Estado inicial (definido no PalliativeCareUiState)
+                // 1. Estado inicial (definido no MainUiState)
                 var currentState = awaitItem()
                 assertTrue(currentState.cuidadosAgrupados.isEmpty())
                 assertFalse(currentState.isLoading)

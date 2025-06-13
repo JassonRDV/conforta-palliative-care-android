@@ -1,4 +1,4 @@
-package com.jasson.conforta.data.remote
+package com.jasson.conforta.domain.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -30,6 +30,7 @@ data class PaliativeCareItemDto(
     val referencia: String
 )
 
+@Serializable
 data class DetalheSubcategoria(
     val nomeSubcategoria: String,
     val descricao: String,
