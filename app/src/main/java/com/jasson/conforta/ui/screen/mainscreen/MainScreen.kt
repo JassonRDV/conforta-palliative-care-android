@@ -17,7 +17,6 @@ fun MainScreen(
     uiState: List<CuidadoPaliativoAgrupado>,
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    viewModel: ViewModel,
 ) {
     Box(
         modifier = modifier
@@ -32,10 +31,8 @@ fun MainScreen(
                     item = item,
                     modifier = Modifier
                         .clickable {
-                            navController.navigate(
-                                AppDestinations.SubDestinations.route
-                            )
-                            viewModel.loadSubGridItems(index)
+                            val route = AppDestinations.SubDestinations.buildRoute(item)
+                            navController.navigate(route)
                         }
                         .padding(4.dp)
                 )

@@ -8,20 +8,19 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.jasson.conforta.ui.screen.mainscreen.ViewModel
 import com.jasson.conforta.ui.theme.ConfortaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: ViewModel by viewModels()
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen().apply {
             setKeepOnScreenCondition {
-                viewModel.uiState.value.isLoading &&
-                        viewModel.uiState.value.errorMessages.isEmpty()
+                mainViewModel.uiState.value.isLoading &&
+                        mainViewModel.uiState.value.errorMessages.isEmpty()
             }
         }
 

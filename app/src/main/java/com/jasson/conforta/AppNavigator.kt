@@ -17,19 +17,22 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.DetalheSubcategoria
 import com.jasson.conforta.ui.screen.detailscreen.CuidadoPaliativoDetalhe
 import com.jasson.conforta.ui.screen.mainscreen.MainScreen
-import com.jasson.conforta.ui.screen.mainscreen.ViewModel
 import com.jasson.conforta.ui.screen.subscreen.SubGridCuidadoPaliativo
 import com.jasson.conforta.ui.screen.topbar.AppTopBar
+import kotlinx.serialization.json.Json
+import java.net.URLDecoder
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppNavigator(
     navController: NavHostController = rememberNavController(),
-    viewModel: ViewModel = hiltViewModel(),
+    mainViewModel: MainViewModel = hiltViewModel(),
 ) {
-    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val uiState by mainViewModel.uiState.collectAsStateWithLifecycle()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
     val currentScreen = remember(currentRoute) {
@@ -60,23 +63,32 @@ fun AppNavigator(
                     modifier = Modifier,
                     navController = navController,
                     uiState = uiState.cuidadosAgrupados,
-                    viewModel = viewModel
                 )
             }
             composable(
                 route = AppDestinations.SubDestinations.route,
-            ) {
+                arguments = AppDestinations.SubDestinations.arguments
+            ) { backStackEntry ->
+                val jsonSubCategory = backStackEntry.arguments?.getString(SUB_CATEGORY_JSON_ARG)
+                val detalheObject = jsonSubCategory.let {
+                    val decodedJson = URLDecoder.decode(it, "UTF-8")
+                    Json.decodeFromString<CuidadoPaliativoAgrupado>(decodedJson.toString())
+                }
                 SubGridCuidadoPaliativo(
-                    uiState = uiState.subGridItems,
-                    viewModel = viewModel,
-                    navController = navController
+                    navController = navController,
+                    subGridItems = detalheObject
                 )
             }
             composable(
                 route = AppDestinations.DetailDestinations.route,
-            ) {
+            ) { backStackEntry ->
+                val jsonSubDetail = backStackEntry.arguments?.getString(DETAIL_JSON_ARG)
+                val detailObject = jsonSubDetail.let {
+                    val decodedJson = URLDecoder.decode(it, "UTF-8")
+                    Json.decodeFromString<DetalheSubcategoria>(decodedJson.toString())
+                }
                 CuidadoPaliativoDetalhe(
-                    uiState = uiState.detail,
+                    uiState = detailObject,
                 )
             }
         }

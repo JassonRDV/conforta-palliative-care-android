@@ -39,6 +39,7 @@ data class DetalheSubcategoria(
     val referencia: String?
 )
 
+@Serializable
 data class CuidadoPaliativoAgrupado(
     val nomeCategoriaPrincipal: String,
     val subcategorias: List<DetalheSubcategoria>

@@ -3,7 +3,6 @@ package com.jasson.conforta
 import app.cash.turbine.test
 import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
 import com.jasson.conforta.data.usecase.GetPalliativeCareDataUseCase
-import com.jasson.conforta.ui.screen.mainscreen.ViewModel
 import com.jasson.conforta.util.MainDispatcherRule
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -26,7 +25,7 @@ class ViewModelTest {
     private lateinit var getPalliativeCareDataUseCase: GetPalliativeCareDataUseCase
 
     // 3. A classe que estamos testando (System Under Test - SUT)
-    private lateinit var viewModel: ViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     @Before
     fun setup() {
@@ -45,12 +44,12 @@ class ViewModelTest {
             coEvery { getPalliativeCareDataUseCase(any(), any()) } returns Result.success(mockData)
 
             // When (Quando) - A ação que aciona a lógica
-            // A lògica de carregar os dados é chamada no 'init' do ViewModel,
-            // então a própria criação do ViewModel é a nossa ação.
-            viewModel = ViewModel(getPalliativeCareDataUseCase)
+            // A lògica de carregar os dados é chamada no 'init' do MainViewModel,
+            // então a própria criação do MainViewModel é a nossa ação.
+            mainViewModel = MainViewModel(getPalliativeCareDataUseCase)
 
             // Then (Então) - A verificação dos estados emitidos pelo StateFlow
-            viewModel.uiState.test {
+            mainViewModel.uiState.test {
                 // A biblioteca Turbine nos permite "esperar" por cada emissão de estado.
 
                 // 1. Estado inicial (definido no MainUiState)

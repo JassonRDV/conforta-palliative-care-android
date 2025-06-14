@@ -8,29 +8,25 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.jasson.conforta.AppDestinations
-import com.jasson.conforta.ui.screen.mainscreen.ViewModel
-import com.jasson.conforta.domain.model.DetalheSubcategoria
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
 
 @Composable
 fun SubGridCuidadoPaliativo(
     modifier: Modifier = Modifier,
-    uiState: List<DetalheSubcategoria>,
-    viewModel: ViewModel,
     navController: NavHostController,
+    subGridItems: CuidadoPaliativoAgrupado,
 ) {
     LazyColumn(
         modifier = modifier.padding(horizontal = 4.dp),
     ) {
-        items(uiState.size) { item ->
-            val gridItem = uiState[item]
+        items(subGridItems.subcategorias.size) { item ->
+            val gridItem = subGridItems.subcategorias[item]
             CuidadoPaliativoSubCard(
                 item = gridItem,
                 modifier = Modifier
                     .clickable {
-                        navController.navigate(
-                            AppDestinations.DetailDestinations.route
-                        )
-                        viewModel.loadDetail(item)
+                        val route = AppDestinations.DetailDestinations.buildRoute(gridItem)
+                        navController.navigate(route)
                     }
                     .padding(4.dp)
             )
