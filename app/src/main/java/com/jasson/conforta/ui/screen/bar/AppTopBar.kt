@@ -1,6 +1,5 @@
-package com.jasson.conforta.ui.screen.topbar
+package com.jasson.conforta.ui.screen.bar
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
