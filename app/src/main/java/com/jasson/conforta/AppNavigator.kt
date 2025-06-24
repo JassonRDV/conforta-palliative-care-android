@@ -1,19 +1,18 @@
 package com.jasson.conforta
 
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.BottomAppBarDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -27,10 +26,10 @@ import androidx.navigation.compose.rememberNavController
 import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
 import com.jasson.conforta.domain.model.DetalheSubcategoria
 import com.jasson.conforta.ui.screen.bar.AppBottomBar
+import com.jasson.conforta.ui.screen.bar.AppTopBar
 import com.jasson.conforta.ui.screen.detailscreen.CuidadoPaliativoDetalhe
 import com.jasson.conforta.ui.screen.mainscreen.MainScreen
 import com.jasson.conforta.ui.screen.subscreen.SubGridCuidadoPaliativo
-import com.jasson.conforta.ui.screen.bar.AppTopBar
 import kotlinx.serialization.json.Json
 import java.net.URLDecoder
 
@@ -43,18 +42,14 @@ fun AppNavigator(
     val uiState by mainViewModel.uiState.collectAsStateWithLifecycle()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
-    val currentScreen = remember(currentRoute) {
-        AppDestinations.fromRoute(currentRoute)
-    }
+    val currentScreen = remember(currentRoute) { AppDestinations.fromRoute(currentRoute) }
+
     Scaffold(
         topBar = {
             AppTopBar(
                 title = stringResource(id = currentScreen.stringId),
-                canNavigateBack = currentScreen != AppDestinations.MainDestinations &&
-                        navController.previousBackStackEntry != null,
-                onNavigationIconClick = {
-                    navController.navigateUp()
-                }
+                onNavigationIconClick = { navController.navigateUp() },
+                canNavigateBack = currentScreen != AppDestinations.MainDestinations
             )
         },
         bottomBar = {
@@ -62,6 +57,7 @@ fun AppNavigator(
                 modifier = Modifier
                     .wrapContentSize()
                     .padding(12.dp)
+                    .padding(WindowInsets.navigationBars.asPaddingValues())
                     .fillMaxWidth()
             )
         },
