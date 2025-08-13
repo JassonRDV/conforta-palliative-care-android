@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "com.jasson.conforta"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.jasson.conforta"
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36 
         versionCode = 2
         versionName = "1.0.1"
 
