@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.jasson.conforta"
+    namespace = "com.jasson.obesidade"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.jasson.conforta"
+        applicationId = "com.jasson.obesidade"
         minSdk = 24
         targetSdk = 36 
         versionCode = 2
@@ -86,6 +86,7 @@ dependencies {
 
     // Testes Unitários (rodam na sua máquina local - JVM)
     testImplementation(libs.junit)
+
     // Para testar o UseCase e ViewModel
     testImplementation(libs.mockk)
     testImplementation(libs.kotlinx.coroutines.test)
