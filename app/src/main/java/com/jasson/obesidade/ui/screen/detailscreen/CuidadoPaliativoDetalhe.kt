@@ -1,5 +1,6 @@
 package com.jasson.obesidade.ui.screen.detailscreen
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -40,7 +41,7 @@ fun CuidadoPaliativoDetalhe(
         Card(
             elevation = CardDefaults.cardElevation(4.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color.White,
+                containerColor = Color(0xFFe6ccef),
             ),
             modifier = Modifier
                 .padding(vertical = 4.dp)

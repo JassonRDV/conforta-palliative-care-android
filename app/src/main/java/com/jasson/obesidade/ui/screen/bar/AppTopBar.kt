@@ -45,7 +45,7 @@ internal fun AppTopBar(
             }
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = Color.White
+            containerColor = Color(0xFFe6ccef)
         ),
         modifier = Modifier
             .shadow(

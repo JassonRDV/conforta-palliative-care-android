@@ -33,7 +33,7 @@ fun AppBottomBar(
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceAround,
-            modifier = Modifier.background(Color.White)
+            modifier = Modifier.background(Color(0xFFe6ccef))
         ) {
             IconButton(
                 onClick = { /*TODO*/ },

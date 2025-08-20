@@ -22,7 +22,7 @@ fun CuidadoPaliativoSubCard(
     Card(
         elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color.White,
+            containerColor = Color(0xFFe6ccef),
         ),
         modifier = modifier
     ) {

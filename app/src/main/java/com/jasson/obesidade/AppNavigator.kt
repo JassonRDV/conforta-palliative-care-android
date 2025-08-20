@@ -31,7 +31,6 @@ import com.jasson.obesidade.ui.screen.detailscreen.CuidadoPaliativoDetalhe
 import com.jasson.obesidade.ui.screen.mainscreen.MainScreen
 import com.jasson.obesidade.ui.screen.subscreen.SubGridCuidadoPaliativo
 import kotlinx.serialization.json.Json
-import java.net.URLDecoder
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,7 +48,7 @@ fun AppNavigator(
             AppTopBar(
                 title = stringResource(id = currentScreen.stringId),
                 onNavigationIconClick = { navController.navigateUp() },
-                canNavigateBack = currentScreen != AppDestinations.MainDestinations
+                canNavigateBack = currentScreen != AppDestinations.MainDestinations,
             )
         },
         bottomBar = {
@@ -81,10 +80,17 @@ fun AppNavigator(
                 route = AppDestinations.SubDestinations.route,
                 arguments = AppDestinations.SubDestinations.arguments
             ) { backStackEntry ->
-                val jsonSubCategory = backStackEntry.arguments?.getString(SUB_CATEGORY_JSON_ARG)
-                val detalheObject = Json.decodeFromString<CuidadoPaliativoAgrupado>(jsonSubCategory.toString())
+                val jsonSubCategory = backStackEntry.arguments?.getString(
+                    SUB_CATEGORY_JSON_ARG
+                )
+                val detalheObject = Json.decodeFromString<CuidadoPaliativoAgrupado>(
+                    jsonSubCategory.toString()
+                )
 
-                Log.e("DEBUG_URL_DECODE", "String recebida para decodificar: '$detalheObject'")
+                Log.e(
+                    "DEBUG_URL_DECODE",
+                    "String recebida para decodificar: '$detalheObject'"
+                )
                 SubGridCuidadoPaliativo(
                     navController = navController,
                     subGridItems = detalheObject
@@ -93,8 +99,12 @@ fun AppNavigator(
             composable(
                 route = AppDestinations.DetailDestinations.route,
             ) { backStackEntry ->
-                val jsonSubDetail = backStackEntry.arguments?.getString(DETAIL_JSON_ARG)
-                val detailObject = Json.decodeFromString<DetalheSubcategoria>(jsonSubDetail.toString())
+                val jsonSubDetail = backStackEntry.arguments?.getString(
+                    DETAIL_JSON_ARG
+                )
+                val detailObject = Json.decodeFromString<DetalheSubcategoria>(
+                    jsonSubDetail.toString()
+                )
                 CuidadoPaliativoDetalhe(
                     uiState = detailObject
                 )
