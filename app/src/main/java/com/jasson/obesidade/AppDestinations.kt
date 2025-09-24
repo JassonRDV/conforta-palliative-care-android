@@ -80,7 +80,7 @@ sealed class AppDestinations(
         fun fromRoute(route: String?): AppDestinations {
             return when {
                 route?.startsWith("detail") == true -> DetailDestinations
-                route?.startsWith("sub_screen") == true -> SubDestinations
+                route?.startsWith("subcategories") == true -> SubDestinations
                 else -> MainDestinations
             }
         }
