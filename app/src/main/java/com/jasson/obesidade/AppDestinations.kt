@@ -1,11 +1,11 @@
-package com.jasson.obesidade
+package com.jasson.conforta
 
-import android.util.Log
 import androidx.annotation.StringRes
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
-import com.jasson.obesidade.domain.model.CuidadoPaliativoAgrupado
-import com.jasson.obesidade.domain.model.DetalheSubcategoria
+import com.jasson.conforta.R
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.DetalheSubcategoria
 import kotlinx.serialization.json.Json
 import java.net.URLEncoder
 
@@ -80,7 +80,7 @@ sealed class AppDestinations(
         fun fromRoute(route: String?): AppDestinations {
             return when {
                 route?.startsWith("detail") == true -> DetailDestinations
-                route?.startsWith("sub_screen") == true -> SubDestinations
+                route?.startsWith("subcategories") == true -> SubDestinations
                 else -> MainDestinations
             }
         }

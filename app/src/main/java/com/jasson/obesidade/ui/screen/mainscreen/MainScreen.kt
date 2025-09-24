@@ -10,8 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.jasson.obesidade.AppDestinations
-import com.jasson.obesidade.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.AppDestinations
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.ui.screen.mainscreen.CuidadoPaliativoCard
 
 @Composable
 fun MainScreen(

@@ -1,7 +1,7 @@
-package com.jasson.obesidade.data.remote.repository
+package com.jasson.conforta.data.remote.repository
 
-import com.jasson.obesidade.data.remote.ApiService
-import com.jasson.obesidade.domain.model.PaliativeCareResponse
+import com.jasson.conforta.data.remote.ApiService
+import com.jasson.conforta.domain.model.PaliativeCareResponse
 import javax.inject.Inject
 import javax.inject.Singleton
 

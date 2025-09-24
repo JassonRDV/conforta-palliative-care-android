@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "com.jasson.obesidade"
+    namespace = "com.jasson.conforta"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.jasson.obesidade"
+        applicationId = "com.jasson.conforta"
         minSdk = 24
         targetSdk = 36 
         versionCode = 2

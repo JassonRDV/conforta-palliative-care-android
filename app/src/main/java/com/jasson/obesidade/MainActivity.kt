@@ -1,4 +1,4 @@
-package com.jasson.obesidade
+package com.jasson.conforta
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.jasson.obesidade.ui.theme.ObesidadeTheme
+import com.jasson.conforta.ui.theme.confortaTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
-            ObesidadeTheme {
+            confortaTheme {
                 AppNavigator()
             }
         }
@@ -37,7 +37,7 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    ObesidadeTheme {
+    confortaTheme {
         AppNavigator()
     }
 }

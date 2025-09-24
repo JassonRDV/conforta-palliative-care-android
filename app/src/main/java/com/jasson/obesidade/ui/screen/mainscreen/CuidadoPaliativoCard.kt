@@ -1,4 +1,4 @@
-package com.jasson.obesidade.ui.screen.mainscreen
+package com.jasson.conforta.ui.screen.mainscreen
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
@@ -12,7 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.jasson.obesidade.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
 
 @Composable
 fun CuidadoPaliativoCard(
@@ -22,7 +22,7 @@ fun CuidadoPaliativoCard(
     Card(
         elevation = CardDefaults.cardElevation(4.dp),
         colors = CardDefaults.cardColors(
-            containerColor = Color(0xFFe6ccef),
+            containerColor = Color.White,
         ),
         modifier = modifier
     ) {

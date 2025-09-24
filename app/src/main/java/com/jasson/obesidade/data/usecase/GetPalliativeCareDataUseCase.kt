@@ -1,15 +1,15 @@
-package com.jasson.obesidade.data.usecase
+package com.jasson.conforta.data.usecase
 
 import android.content.SharedPreferences
 import android.util.Log
 import androidx.core.content.edit
-import com.jasson.obesidade.data.local.repository.PalliativeCareLocalDataSource
-import com.jasson.obesidade.data.local.toDto
-import com.jasson.obesidade.data.local.toEntity
-import com.jasson.obesidade.domain.model.CuidadoPaliativoAgrupado
-import com.jasson.obesidade.domain.model.DetalheSubcategoria
-import com.jasson.obesidade.domain.model.PaliativeCareItemDto
-import com.jasson.obesidade.data.remote.repository.PalliativeCareNetwork
+import com.jasson.conforta.data.local.repository.PalliativeCareLocalDataSource
+import com.jasson.conforta.data.local.toDto
+import com.jasson.conforta.data.local.toEntity
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.DetalheSubcategoria
+import com.jasson.conforta.domain.model.PaliativeCareItemDto
+import com.jasson.conforta.data.remote.repository.PalliativeCareNetwork
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton

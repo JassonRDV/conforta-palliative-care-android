@@ -1,9 +1,9 @@
-package com.jasson.obesidade.data.repository
+package com.jasson.conforta.data.repository
 
 import android.content.SharedPreferences
-import com.jasson.obesidade.data.local.repository.PalliativeCareLocalDataSource
-import com.jasson.obesidade.data.remote.repository.PalliativeCareNetwork
-import com.jasson.obesidade.domain.model.PaliativeCareItemDto
+import com.jasson.conforta.data.local.repository.PalliativeCareLocalDataSource
+import com.jasson.conforta.data.remote.repository.PalliativeCareNetwork
+import com.jasson.conforta.domain.model.PaliativeCareItemDto
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 import javax.inject.Singleton

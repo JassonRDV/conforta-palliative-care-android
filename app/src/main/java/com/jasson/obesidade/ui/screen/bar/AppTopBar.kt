@@ -1,4 +1,4 @@
-package com.jasson.obesidade.ui.screen.bar
+package com.jasson.conforta.ui.screen.bar
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.jasson.obesidade.R
+import com.jasson.conforta.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,7 +45,7 @@ internal fun AppTopBar(
             }
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = Color(0xFFe6ccef)
+            containerColor = Color.White
         ),
         modifier = Modifier
             .shadow(

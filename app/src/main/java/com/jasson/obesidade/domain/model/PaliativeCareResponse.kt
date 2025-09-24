@@ -1,4 +1,4 @@
-package com.jasson.obesidade.domain.model
+package com.jasson.conforta.domain.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

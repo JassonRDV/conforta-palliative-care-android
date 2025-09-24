@@ -1,4 +1,4 @@
-package com.jasson.obesidade.data.local
+package com.jasson.conforta.data.local
 
 import androidx.room.TypeConverter
 import kotlinx.serialization.builtins.ListSerializer

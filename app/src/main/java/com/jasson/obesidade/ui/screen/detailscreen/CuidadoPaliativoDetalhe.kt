@@ -1,4 +1,4 @@
-package com.jasson.obesidade.ui.screen.detailscreen
+package com.jasson.conforta.ui.screen.detailscreen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.jasson.obesidade.domain.model.DetalheSubcategoria
+import com.jasson.conforta.domain.model.DetalheSubcategoria
 
 @Composable
 fun CuidadoPaliativoDetalhe(
@@ -37,7 +37,7 @@ fun CuidadoPaliativoDetalhe(
         Card(
             elevation = CardDefaults.cardElevation(4.dp),
             colors = CardDefaults.cardColors(
-                containerColor = Color(0xFFe6ccef),
+                containerColor = Color.White,
             ),
             modifier = Modifier
                 .padding(vertical = 4.dp)

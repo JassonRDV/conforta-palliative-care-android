@@ -1,6 +1,6 @@
-package com.jasson.obesidade.data.repository
+package com.jasson.conforta.data.repository
 
-import com.jasson.obesidade.domain.model.PaliativeCareItemDto
+import com.jasson.conforta.domain.model.PaliativeCareItemDto
 import kotlinx.coroutines.flow.Flow
 
 interface PalliativeCareRepository {

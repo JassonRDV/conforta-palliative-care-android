@@ -1,11 +1,11 @@
-package com.jasson.obesidade.di
+package com.jasson.conforta.di
 
 import android.content.Context
 import androidx.room.Room
-import com.jasson.obesidade.data.local.AppDatabase
-import com.jasson.obesidade.data.local.PalliativeCareDao
-import com.jasson.obesidade.data.local.repository.PalliativeCareLocalDataSource
-import com.jasson.obesidade.data.local.repository.PalliativeCareLocalDataSourceImpl
+import com.jasson.conforta.data.local.AppDatabase
+import com.jasson.conforta.data.local.PalliativeCareDao
+import com.jasson.conforta.data.local.repository.PalliativeCareLocalDataSource
+import com.jasson.conforta.data.local.repository.PalliativeCareLocalDataSourceImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

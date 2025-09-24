@@ -1,4 +1,4 @@
-package com.jasson.obesidade
+package com.jasson.conforta
 
 import android.util.Log
 import androidx.compose.foundation.layout.WindowInsets
@@ -23,13 +23,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.jasson.obesidade.domain.model.CuidadoPaliativoAgrupado
-import com.jasson.obesidade.domain.model.DetalheSubcategoria
-import com.jasson.obesidade.ui.screen.bar.AppBottomBar
-import com.jasson.obesidade.ui.screen.bar.AppTopBar
-import com.jasson.obesidade.ui.screen.detailscreen.CuidadoPaliativoDetalhe
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.domain.model.DetalheSubcategoria
+import com.jasson.conforta.ui.screen.bar.AppBottomBar
+import com.jasson.conforta.ui.screen.bar.AppTopBar
+import com.jasson.conforta.ui.screen.detailscreen.CuidadoPaliativoDetalhe
 import com.jasson.obesidade.ui.screen.mainscreen.MainScreen
-import com.jasson.obesidade.ui.screen.subscreen.SubGridCuidadoPaliativo
+import com.jasson.conforta.ui.screen.subscreen.SubGridCuidadoPaliativo
 import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalMaterial3Api::class)

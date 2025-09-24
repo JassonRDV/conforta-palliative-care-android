@@ -1,9 +1,9 @@
-package com.jasson.obesidade
+package com.jasson.conforta
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jasson.obesidade.domain.model.CuidadoPaliativoAgrupado
-import com.jasson.obesidade.data.usecase.GetPalliativeCareDataUseCase
+import com.jasson.conforta.domain.model.CuidadoPaliativoAgrupado
+import com.jasson.conforta.data.usecase.GetPalliativeCareDataUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -63,7 +63,7 @@ class MainViewModel @Inject constructor(
     }
 
     companion object {
-        private const val DEFAULT_PALLIATIVE_CARE_FILE_ID = "1St7aYDRuexqnOQQTqJjtL4Q5s95lwHGD"
+        private const val DEFAULT_PALLIATIVE_CARE_FILE_ID = "1Jco1ErIv-wircvpRNxy6pffVJ0_vzCnn"
     }
 }
 

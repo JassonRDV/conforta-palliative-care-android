@@ -1,4 +1,4 @@
-package com.jasson.obesidade.util
+package com.jasson.conforta.util
 
 /**
  * Utility object for calculating the Levenshtein distance between two strings.

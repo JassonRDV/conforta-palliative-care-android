@@ -1,6 +1,6 @@
-package com.jasson.obesidade.data.remote.repository
+package com.jasson.conforta.data.remote.repository
 
-import com.jasson.obesidade.domain.model.PaliativeCareResponse
+import com.jasson.conforta.domain.model.PaliativeCareResponse
 
 interface PalliativeCareNetwork {
     suspend fun fetchPalliativeCareData(

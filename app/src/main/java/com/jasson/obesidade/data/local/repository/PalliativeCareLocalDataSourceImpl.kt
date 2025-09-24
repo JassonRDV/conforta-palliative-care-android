@@ -1,7 +1,7 @@
-package com.jasson.obesidade.data.local.repository
+package com.jasson.conforta.data.local.repository
 
-import com.jasson.obesidade.data.local.PaliativeCareItemEntity
-import com.jasson.obesidade.data.local.PalliativeCareDao
+import com.jasson.conforta.data.local.PaliativeCareItemEntity
+import com.jasson.conforta.data.local.PalliativeCareDao
 import javax.inject.Inject
 import javax.inject.Singleton
 

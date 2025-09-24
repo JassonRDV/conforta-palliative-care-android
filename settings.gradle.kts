@@ -22,5 +22,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Obesidade"
+rootProject.name = "conforta"
 include(":app")

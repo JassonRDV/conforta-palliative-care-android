@@ -1,4 +1,4 @@
-package com.jasson.obesidade.ui.screen.bar
+package com.jasson.conforta.ui.screen.bar
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -17,7 +17,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.jasson.obesidade.R
+import com.jasson.conforta.R
 
 @Composable
 fun AppBottomBar(
@@ -33,7 +33,7 @@ fun AppBottomBar(
     ) {
         Row(
             horizontalArrangement = Arrangement.SpaceAround,
-            modifier = Modifier.background(Color(0xFFe6ccef))
+            modifier = Modifier.background(Color.White)
         ) {
             IconButton(
                 onClick = { /*TODO*/ },

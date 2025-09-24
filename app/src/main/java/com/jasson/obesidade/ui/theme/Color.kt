@@ -1,4 +1,4 @@
-package com.jasson.obesidade.ui.theme
+package com.jasson.conforta.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

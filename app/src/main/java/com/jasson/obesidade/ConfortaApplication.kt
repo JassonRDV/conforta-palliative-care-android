@@ -1,8 +1,8 @@
-package com.jasson.obesidade
+package com.jasson.conforta
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class ObesidadeApplication: Application()  {
+class confortaApplication: Application()  {
 }

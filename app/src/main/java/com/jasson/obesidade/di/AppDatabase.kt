@@ -1,4 +1,4 @@
-package com.jasson.obesidade.di
+package com.jasson.conforta.di
 
 import android.content.Context
 import android.content.SharedPreferences

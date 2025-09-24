@@ -1,6 +1,6 @@
-package com.jasson.obesidade.data.local.repository
+package com.jasson.conforta.data.local.repository
 
-import com.jasson.obesidade.data.local.PaliativeCareItemEntity
+import com.jasson.conforta.data.local.PaliativeCareItemEntity
 
 interface PalliativeCareLocalDataSource {
     suspend fun getPalliativeCareItems(): List<PaliativeCareItemEntity>

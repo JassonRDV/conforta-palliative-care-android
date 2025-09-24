@@ -1,4 +1,4 @@
-package com.jasson.obesidade.data.local
+package com.jasson.conforta.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

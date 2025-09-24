@@ -1,9 +1,9 @@
-package com.jasson.obesidade.di
+package com.jasson.conforta.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
-import com.jasson.obesidade.data.remote.ApiService
-import com.jasson.obesidade.data.remote.repository.PalliativeCareNetwork
-import com.jasson.obesidade.data.remote.repository.PalliativeCareNetworkImpl
+import com.jasson.conforta.data.remote.ApiService
+import com.jasson.conforta.data.remote.repository.PalliativeCareNetwork
+import com.jasson.conforta.data.remote.repository.PalliativeCareNetworkImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
