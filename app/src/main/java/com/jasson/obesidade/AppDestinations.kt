@@ -1,6 +1,5 @@
 package com.jasson.obesidade
 
-import android.util.Log
 import androidx.annotation.StringRes
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
@@ -40,7 +39,8 @@ sealed class AppDestinations(
         val arguments = listOf(
             navArgument(SUB_CATEGORY_JSON_ARG) { type = NavType.StringType }
         )
-        fun buildRoute(subCategoriaJson: CuidadoPaliativoAgrupado) : String {
+
+        fun buildRoute(subCategoriaJson: CuidadoPaliativoAgrupado): String {
             val json = Json.encodeToString(
                 CuidadoPaliativoAgrupado.serializer(),
                 subCategoriaJson
@@ -58,6 +58,7 @@ sealed class AppDestinations(
         val arguments = listOf(
             navArgument(DETAIL_JSON_ARG) { type = NavType.StringType }
         )
+
         fun buildRoute(detailJson: DetalheSubcategoria): String {
             val json = Json.encodeToString(
                 DetalheSubcategoria.serializer(),
