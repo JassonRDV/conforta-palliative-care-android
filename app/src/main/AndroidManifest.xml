@@ -5,7 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
-        android:name=".confortaApplication"
+        android:name="com.jasson.conforta.confortaApplication"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Conforta"
         tools:targetApi="36">
         <activity
-            android:name=".MainActivity"
+            android:name="com.jasson.conforta.MainActivity"
             android:exported="true"
             android:theme= "@style/Theme.App.Starting">
             <intent-filter>

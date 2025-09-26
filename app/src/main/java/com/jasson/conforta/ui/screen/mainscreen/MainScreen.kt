@@ -1,4 +1,4 @@
-package com.jasson.obesidade.ui.screen.mainscreen
+package com.jasson.conforta.ui.screen.mainscreen
 
 import android.util.Log
 import androidx.compose.foundation.clickable

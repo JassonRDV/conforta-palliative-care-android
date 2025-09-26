@@ -63,7 +63,7 @@ class MainViewModel @Inject constructor(
     }
 
     companion object {
-        private const val DEFAULT_PALLIATIVE_CARE_FILE_ID = "1Jco1ErIv-wircvpRNxy6pffVJ0_vzCnn"
+        private const val DEFAULT_PALLIATIVE_CARE_FILE_ID = "1xh2b-SADBn2x2wvUp10P9nriIKkyYVo8"
     }
 }
 

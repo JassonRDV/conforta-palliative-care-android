@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.jasson.conforta.AppNavigator
 import com.jasson.conforta.ui.theme.confortaTheme
 import dagger.hilt.android.AndroidEntryPoint
 

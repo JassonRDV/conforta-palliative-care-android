@@ -28,8 +28,9 @@ import com.jasson.conforta.domain.model.DetalheSubcategoria
 import com.jasson.conforta.ui.screen.bar.AppBottomBar
 import com.jasson.conforta.ui.screen.bar.AppTopBar
 import com.jasson.conforta.ui.screen.detailscreen.CuidadoPaliativoDetalhe
-import com.jasson.obesidade.ui.screen.mainscreen.MainScreen
+import com.jasson.conforta.ui.screen.mainscreen.MainScreen
 import com.jasson.conforta.ui.screen.subscreen.SubGridCuidadoPaliativo
+import com.jasson.conforta.MainViewModel
 import kotlinx.serialization.json.Json
 
 @OptIn(ExperimentalMaterial3Api::class)
