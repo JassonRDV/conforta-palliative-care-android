@@ -44,3 +44,7 @@ To request a debug build on Windows:
 The current Android application label is `Mente & Corpo`, and the package namespace is `com.jasson.obesidade`. The implemented content flow is centered on palliative care.
 
 The separate repository streaming method, `getPalliativeCareDataStream()`, is still marked as a TODO. The current ViewModel loads content through the data-loading use case described above.
+
+## Contact
+
+[Jasson Ramos on LinkedIn](https://www.linkedin.com/in/jassonramos/)
