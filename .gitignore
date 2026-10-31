@@ -31,7 +31,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
-=======
 *.iml
 .gradle
 /local.properties
@@ -47,3 +46,19 @@ google-services.json
 .externalNativeBuild
 .cxx
 local.properties
+
+# Local secrets and signing credentials
+.env
+.env.*
+!.env.example
+!.env.*.example
+secrets.properties
+secrets.*.properties
+!secrets.example.properties
+keystore.properties
+key.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
